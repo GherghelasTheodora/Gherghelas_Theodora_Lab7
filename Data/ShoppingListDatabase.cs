@@ -18,8 +18,26 @@ namespace Gherghelas_Theodora_Lab7.Data
             _database.CreateTableAsync<ShopList>().Wait();
             _database.CreateTableAsync<Product>().Wait();
             _database.CreateTableAsync<ListProduct>().Wait();
+            _database.CreateTableAsync<Shop>().Wait();
         }
 
+
+        public Task<List<Shop>> GetAhopsAsync()
+        {
+            return _database.Table<Shop>().ToListAsync();
+        }
+
+        public Task<int> SaveShopAsync(Shop shop)
+        {
+            if (shop.Id !=0)
+            {
+                return _database.UpdateAsync(shop);
+            }
+            else
+            {
+                return _database.InsertAsync(shop);
+            }
+        }
         public Task<int> SaveProductAsync(Product product)
         {
             if (product.ID !=0)
@@ -92,6 +110,9 @@ namespace Gherghelas_Theodora_Lab7.Data
                 shoplistid);
         }
 
-
+        internal Task DeleteProductAsync(List<Product> productToDelete)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

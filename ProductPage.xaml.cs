@@ -48,4 +48,16 @@ public partial class ProductPage : ContentPage
 			await Navigation.PopAsync();
 		}
 	}
+
+async void OnDeleteItemClicked(object sender, EventArgs e)
+	{
+		var productToDelete= await App.Database.GetProductsAsync();
+		if (productToDelete != null)
+		{
+			await App.Database.DeleteProductAsync(productToDelete);
+			listView.ItemsSource = await App.Database.GetProductsAsync();
+		}
+	
+	}
+    
 }
