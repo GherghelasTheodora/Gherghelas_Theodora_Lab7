@@ -11,7 +11,7 @@ namespace Gherghelas_Theodora_Lab7.Models
     public class Shop
     {
         [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
+        public int ID { get; set; }
 
         public string ShopName { get; set; }
 

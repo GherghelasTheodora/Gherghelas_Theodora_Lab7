@@ -13,7 +13,7 @@ async void OnSaveButtonClicked(object sender, EventArgs e)
 		var slist = (ShopList)BindingContext;
 		slist.Date = DateTime.UtcNow;
 		Shop selectedShop = (ShopPicker.SelectedItem as Shop);
-		slist.ShopID = selectedShop.Id;
+		slist.ShopID = selectedShop.ID;
 		await App.Database.SaveShopListAsync(slist);
 		await Navigation.PopAsync();
 	}

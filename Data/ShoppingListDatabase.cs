@@ -22,14 +22,14 @@ namespace Gherghelas_Theodora_Lab7.Data
         }
 
 
-        public Task<List<Shop>> GetAhopsAsync()
+        public Task<List<Shop>> GetShopsAsync()
         {
             return _database.Table<Shop>().ToListAsync();
         }
 
         public Task<int> SaveShopAsync(Shop shop)
         {
-            if (shop.Id !=0)
+            if (shop.ID !=0)
             {
                 return _database.UpdateAsync(shop);
             }
